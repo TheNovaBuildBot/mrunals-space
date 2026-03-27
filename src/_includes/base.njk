@@ -9,6 +9,15 @@
 <meta property="og:title" content="{{ title or site.title_suffix }}">
 <meta property="og:description" content="{{ description or '' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/assets/use-this-as-my-profile-picture.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title or site.title_suffix }}">
+<meta name="twitter:description" content="{{ description or '' }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/use-this-as-my-profile-picture.jpg">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"{{ site.name }}","jobTitle":"{{ site.specialty }}","url":"{{ site.url }}","email":"{{ site.email }}","telephone":"{{ site.phone_display }}","address":{"@type":"PostalAddress","addressLocality":"San Francisco Bay Area","addressRegion":"California","addressCountry":"US"},"sameAs":["{{ site.linkedin }}"],"description":"{{ site.tagline }}"}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 {% if site.ga_id %}
