@@ -1,55 +1,11 @@
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div>
-        <h4>{{ site.name }}</h4>
-        <p>{{ site.title }}</p>
-        <p>{{ site.tagline }}</p>
-      </div>
-      
-      <div>
-        <h4>Services</h4>
-        <ul style="list-style: none;">
-          {% for service in services %}
-          <li style="margin-bottom: 0.5rem;">
-            <a href="#services">{{ service.name }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      
-      <div>
-        <h4>Contact</h4>
-        <p>
-          <strong>Phone:</strong><br>
-          <a href="tel:{{ site.phone }}">{{ site.phone_display }}</a>
-        </p>
-        <p>
-          <strong>Email:</strong><br>
-          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        </p>
-        <p>
-          <strong>Location:</strong><br>
-          {{ site.address }}
-        </p>
-      </div>
-      
-      <div>
-        <h4>Connect</h4>
-        <p>
-          <a href="{{ site.linkedin }}" target="_blank">LinkedIn Profile</a>
-        </p>
-        <p>
-          <a href="mailto:{{ site.email }}">Send Email</a>
-        </p>
-        <p>
-          <a href="tel:{{ site.phone }}">Call Now</a>
-        </p>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2026 {{ site.name }}. All rights reserved.</p>
-    </div>
+<footer>
+  <div class="wrap">
+    <p>
+      &copy; 2026 {{ site.name }}
+      <span class="sep">|</span>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <span class="sep">|</span>
+      <a href="{{ site.linkedin }}" target="_blank">LinkedIn</a>
+    </p>
   </div>
 </footer>

@@ -1,16 +1,15 @@
-<header class="header">
-  <div class="container">
-    <div class="logo">
-      <a href="/">{{ site.name }}</a>
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-name">{{ site.name }}</span>
+      </a>
+      <nav>
+        <a href="/#about">About</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <a href="{{ site.linkedin }}" target="_blank" class="btn btn-outline">LinkedIn</a>
     </div>
-    <nav>
-      <ul class="nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="{{ site.linkedin }}" target="_blank">LinkedIn</a></li>
-      </ul>
-    </nav>
   </div>
 </header>

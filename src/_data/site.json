@@ -1,18 +1,15 @@
 {
   "name": "Mrunal Parikh",
-  "title": "Experienced SDET | Test Operations Leader",
-  "tagline": "15+ years leading test operations across various platforms and technologies",
-  "business": "Mrunal's Space",
-  "industry": "Software Engineering",
-  "specialty": "SDET | QA Automation | Test Operations",
+  "title_suffix": "Mrunal Parikh | SDET & Test Operations Leader",
+  "specialty": "SDET & Test Operations Leader",
+  "tagline": "15+ years leading test operations across platforms and technologies",
   "phone": "+16507722240",
   "phone_display": "+1 650 772 2240",
   "email": "mrunaldparikh@gmail.com",
   "address": "California, USA",
   "address_short": "California, USA",
-  "city": "San Francisco",
+  "city": "San Francisco Bay Area",
   "url": "https://mrunals-space.pages.dev",
   "linkedin": "https://www.linkedin.com/in/mrunalparikh",
-  "whatsapp_message": "Hi Mrunal, I'd like to connect!",
   "ga_id": ""
 }

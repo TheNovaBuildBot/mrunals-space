@@ -1,190 +1,153 @@
 ---
 layout: base.njk
-title: "Home"
-description: "Mrunal Parikh - Experienced SDET with 15+ years leading test operations across various platforms and technologies"
+title: "Mrunal Parikh — SDET & Test Operations Leader"
+description: "Mrunal Parikh — Experienced SDET and Test Operations Leader with 15+ years at Meta and across the tech industry. Based in California."
 ---
 
-<!-- Hero Section -->
+{% include "header.njk" %}
+
+<!-- Hero -->
 <section class="hero">
-  <div class="container">
-    <img src="/assets/use-this-as-my-profile-picture.jpg" alt="{{ site.name }}" class="profile-photo">
-    <h1>{{ site.name }}</h1>
-    <p>{{ site.title }}</p>
-    <p>{{ site.tagline }}</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn btn-primary btn-large">Get In Touch</a>
-      <a href="{{ site.linkedin }}" target="_blank" class="btn btn-outline btn-large">View LinkedIn</a>
+  <div class="wrap">
+    <div class="hero-inner">
+      <img src="/assets/use-this-as-my-profile-picture.jpg" alt="{{ site.name }}" class="profile-photo">
+      <div class="hero-label">SDET &amp; Test Operations Leader</div>
+      <h1>{{ site.name }}</h1>
+      <p class="subtitle">{{ site.specialty }}</p>
+      <p class="tagline">"{{ site.tagline }}"</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-accent">Get In Touch</a>
+        <a href="{{ site.linkedin }}" target="_blank" class="btn btn-outline-light">View LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-subtitle">About Me</div>
-      <h2>Professional Background</h2>
-    </div>
-    
-    <div class="about-content">
+<!-- About -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-sidebar">
+        <div class="stat">
+          <div class="num">15+</div>
+          <div class="lbl">Years in Tech</div>
+        </div>
+        <div class="stat">
+          <div class="num">Meta</div>
+          <div class="lbl">Current Company</div>
+        </div>
+        <div class="stat">
+          <div class="num">500+</div>
+          <div class="lbl">LinkedIn Connections</div>
+        </div>
+      </div>
       <div>
-        <h3>Experience & Expertise</h3>
-        <p>With 15 years of experience in the software testing industry, I specialize in leading test operations across various platforms and technologies. Currently working at Meta, I bring deep expertise in SDET practices, test automation, and quality assurance leadership.</p>
-        
-        <p>My educational background includes studies at The University of Texas at Dallas, where I developed a strong foundation in technical skills that I've built upon throughout my career.</p>
-        
-        <p>I'm passionate about building robust test infrastructure, implementing comprehensive automation frameworks, and leading high-performing QA teams to deliver exceptional software quality.</p>
-        
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">LinkedIn Connections</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">634</div>
-            <div class="stat-label">Followers</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Meta Contacts</div>
-          </div>
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Professional Background</h2>
+        <div class="section-divider"></div>
+        <div class="about-text">
+          <p>With over 15 years of experience in the software testing industry, I specialize in leading test operations across various platforms and technologies. Currently at <strong>Meta</strong>, I bring deep expertise in SDET practices, test automation, and quality assurance leadership.</p>
+          <p>My career has been defined by building robust test infrastructure, implementing comprehensive automation frameworks, and leading high-performing QA teams to deliver exceptional software quality at scale.</p>
+          <p>I hold a graduate degree from <strong>The University of Texas at Dallas</strong> (2006–2008), where I developed a strong foundation in technical skills that have evolved throughout my career.</p>
         </div>
-      </div>
-      
-      <div>
-        <h3>Current Role</h3>
-        <div class="card">
-          <h4>Meta</h4>
-          <p><strong>{{ site.title }}</strong></p>
-          <p>Leading test operations and automation initiatives for large-scale platforms, driving quality excellence through innovative testing strategies and team leadership.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Test Automation</span>
+          <span class="skill-tag">SDET</span>
+          <span class="skill-tag">Test Operations</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Quality Engineering</span>
+          <span class="skill-tag">Team Leadership</span>
+          <span class="skill-tag">Infrastructure</span>
+          <span class="skill-tag">Scalable Testing</span>
         </div>
-        
-        <h3 class="mt-3">Education</h3>
-        <div class="card">
-          <h4>The University of Texas at Dallas</h4>
-          <p><strong>Graduate Studies</strong> (2006-2008)</p>
-          <p>Advanced studies in computer science and software engineering principles.</p>
-        </div>
+        <a href="{{ site.linkedin }}" target="_blank" class="btn btn-primary">View Full Profile on LinkedIn</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
-<section id="services" class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-subtitle">Services</div>
-      <h2>Professional Services</h2>
-      <p>Comprehensive testing and quality assurance solutions</p>
+<!-- Experience -->
+<section id="experience" class="experience">
+  <div class="wrap">
+    <div style="text-align: center; margin-bottom: 56px;">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Experience &amp; Education</h2>
+      <div class="section-divider" style="margin: 0 auto 24px;"></div>
     </div>
-    
-    <div class="grid grid-3">
-      {% for service in services %}
-      <div class="card">
-        <h3>{{ service.name }}</h3>
-        <p>{{ service.description }}</p>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="period">Current Role</div>
+        <h3>SDET / Test Operations Leader</h3>
+        <div class="company">Meta</div>
+        <p>Leading test operations and automation initiatives for large-scale platforms. Driving quality excellence through innovative testing strategies, building scalable test infrastructure, and mentoring engineering teams.</p>
       </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-subtitle">Contact</div>
-      <h2>Get In Touch</h2>
-      <p>Let's discuss how we can work together</p>
-    </div>
-    
-    <div class="grid grid-2">
-      <div>
-        <form id="contact-form">
-          <div class="form-group">
-            <label for="name" class="form-label">Name *</label>
-            <input type="text" id="name" name="name" class="form-input" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email" class="form-label">Email *</label>
-            <input type="email" id="email" name="email" class="form-input" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="subject" class="form-label">Subject</label>
-            <input type="text" id="subject" name="subject" class="form-input">
-          </div>
-          
-          <div class="form-group">
-            <label for="message" class="form-label">Message *</label>
-            <textarea id="message" name="message" class="form-input" required placeholder="Tell me about your project or how I can help..."></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-        </form>
+      <div class="exp-card">
+        <div class="period">Education • 2006–2008</div>
+        <h3>Graduate Studies</h3>
+        <div class="company">The University of Texas at Dallas</div>
+        <p>Advanced studies in computer science and software engineering. Developed strong foundations in algorithms, system design, and software quality principles that have shaped my career in test engineering.</p>
       </div>
-      
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-          </svg>
-          <div>
-            <strong>Phone</strong><br>
-            <a href="tel:{{ site.phone }}">{{ site.phone_display }}</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-          <div>
-            <strong>Email</strong><br>
-            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          <div>
-            <strong>Location</strong><br>
-            {{ site.address }}
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
-          <div>
-            <strong>LinkedIn</strong><br>
-            <a href="{{ site.linkedin }}" target="_blank">View Profile</a>
-          </div>
-        </div>
+      <div class="exp-card">
+        <div class="period">Expertise</div>
+        <h3>Test Infrastructure &amp; Automation</h3>
+        <div class="company">15+ Years Across Industry</div>
+        <p>Extensive experience building and scaling test automation frameworks, CI/CD pipelines, and quality processes. Proven track record of transforming QA organizations and improving release velocity.</p>
+      </div>
+      <div class="exp-card">
+        <div class="period">Leadership</div>
+        <h3>QA Team Building</h3>
+        <div class="company">Cross-Functional Impact</div>
+        <p>Built and led high-performing QA and SDET teams. Established testing best practices, mentorship programs, and quality culture across organizations of varying scale and complexity.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="section section-alt">
-  <div class="container text-center">
-    <h2>Ready to Work Together?</h2>
-    <p>Let's discuss your testing and quality assurance needs</p>
-    <div style="margin-top: 2rem;">
-      <a href="mailto:{{ site.email }}" class="btn btn-primary btn-large">Send Email</a>
-      <a href="{{ site.linkedin }}" target="_blank" class="btn btn-outline btn-large">Connect on LinkedIn</a>
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="wrap">
+    <h2>Let's Connect</h2>
+    <p>Interested in collaboration, mentorship, or discussing test engineering? I'd love to hear from you.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="mailto:{{ site.email }}" class="btn btn-accent">Send Email</a>
+      <a href="{{ site.linkedin }}" target="_blank" class="btn btn-outline-light">Connect on LinkedIn</a>
     </div>
   </div>
 </section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="contact-center">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-divider" style="margin: 0 auto 24px;"></div>
+      <p style="color: var(--text-light); margin-bottom: 8px;">Based in {{ site.city }}. Available for professional opportunities, collaborations, and mentorship.</p>
+      <div class="contact-links">
+        <a href="mailto:{{ site.email }}" class="contact-card">
+          <div class="icon">✉</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="val">{{ site.email }}</div>
+          </div>
+        </a>
+        <a href="tel:{{ site.phone }}" class="contact-card">
+          <div class="icon">📞</div>
+          <div>
+            <div class="label">Phone</div>
+            <div class="val">{{ site.phone_display }}</div>
+          </div>
+        </a>
+        <a href="{{ site.linkedin }}" target="_blank" class="contact-card">
+          <div class="icon">💼</div>
+          <div>
+            <div class="label">LinkedIn</div>
+            <div class="val">View Profile</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "footer.njk" %}
