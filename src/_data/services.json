@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Test Automation Strategy",
+    "description": "Design and implement comprehensive test automation frameworks for large-scale platforms"
+  },
+  {
+    "name": "QA Operations Leadership",
+    "description": "Lead and manage QA teams, build efficient test operations, and establish best practices"
+  },
+  {
+    "name": "SDET Expertise",
+    "description": "Develop robust test infrastructure, tools, and automation solutions for complex systems"
+  },
+  {
+    "name": "Performance Testing",
+    "description": "Analyze and optimize system performance through comprehensive testing and monitoring"
+  },
+  {
+    "name": "Test Infrastructure",
+    "description": "Build scalable and reliable test infrastructure for continuous integration and delivery"
+  },
+  {
+    "name": "Technical Consulting",
+    "description": "Advise on QA strategies, automation best practices, and test operations optimization"
+  }
+]

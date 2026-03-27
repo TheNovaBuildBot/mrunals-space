@@ -1,0 +1,16 @@
+{
+  "name": "mrunals-space",
+  "version": "1.0.0",
+  "description": "Personal website for Mrunal Parikh",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "deploy": "wrangler pages deploy _site"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "wrangler": "^3.0.0"
+  },
+  "devDependencies": {}
+}

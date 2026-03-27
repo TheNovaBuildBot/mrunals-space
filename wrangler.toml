@@ -1,0 +1,13 @@
+name = "mrunals-space"
+type = "javascript"
+
+[env.production]
+route = "mrunals-space.pages.dev"
+zone_id = ""
+
+[build]
+command = "npm run build"
+watch_paths = ["src/**/*.njk", "src/**/*.json", "src/**/*.md"]
+
+[assets]
+directory = "./_site"
