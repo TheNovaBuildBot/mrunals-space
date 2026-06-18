@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description or '' }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description or '' }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/assets/front-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description or '' }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/front-cover.jpg">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Book","name":"Tiny Bite Books","author":{"@type":"Person","name":"Mrunal Parikh"},"description":"A debut picture book about a cheese-loving toddler who meets five chatty cheese characters. For curious kids ages 2–6.","url":"{{ site.url }}/book/","publisher":{"@type":"Person","name":"Mrunal Parikh"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --tbb-yellow: #FFD166;
+  --tbb-yellow-dark: #F4B730;
+  --tbb-coral: #FF6B6B;
+  --tbb-coral-dark: #E85555;
+  --tbb-mint: #06D6A0;
+  --tbb-mint-dark: #04B887;
+  --tbb-cream: #FFFBF0;
+  --tbb-cream-mid: #FFF3D0;
+  --tbb-purple: #9B5DE5;
+  --tbb-blue: #4CC9F0;
+  --tbb-text: #2D2D2D;
+  --tbb-text-light: #6B6B7A;
+  --tbb-white: #FFFFFF;
+  --tbb-border: #FFE8A3;
+  --tbb-radius: 20px;
+  --tbb-radius-lg: 32px;
+  --tbb-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  --tbb-shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+  --tbb-font: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --tbb-display: 'Fredoka One', 'Nunito', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--tbb-font);
+  color: var(--tbb-text);
+  background: var(--tbb-cream);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+p { margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+
+.tbb-wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+/* ── Buttons ─── */
+.tbb-btn {
+  display: inline-block; padding: 14px 32px; border-radius: 50px;
+  font-family: var(--tbb-font); font-size: 15px; font-weight: 800;
+  letter-spacing: 0.01em; cursor: pointer; border: 3px solid transparent;
+  transition: all 0.25s ease; text-align: center;
+}
+.tbb-btn-primary {
+  background: var(--tbb-coral); color: var(--tbb-white);
+  border-color: var(--tbb-coral); box-shadow: 0 4px 0 var(--tbb-coral-dark);
+}
+.tbb-btn-primary:hover {
+  background: var(--tbb-coral-dark); border-color: var(--tbb-coral-dark);
+  transform: translateY(-2px); box-shadow: 0 6px 0 var(--tbb-coral-dark);
+}
+.tbb-btn-outline {
+  background: transparent; color: var(--tbb-text);
+  border-color: rgba(45,45,45,0.2);
+}
+.tbb-btn-outline:hover {
+  background: rgba(255,255,255,0.3); border-color: rgba(45,45,45,0.4);
+  transform: translateY(-2px);
+}
+.tbb-btn-amazon {
+  background: var(--tbb-yellow); color: var(--tbb-text);
+  border-color: var(--tbb-yellow); box-shadow: 0 4px 0 var(--tbb-yellow-dark);
+  font-size: 17px; padding: 16px 44px;
+}
+.tbb-btn-amazon:hover {
+  background: var(--tbb-yellow-dark); border-color: var(--tbb-yellow-dark);
+  transform: translateY(-2px); box-shadow: 0 6px 0 #c9940a;
+}
+.tbb-btn-outline-dark {
+  background: transparent; color: var(--tbb-text);
+  border-color: rgba(45,45,45,0.25);
+}
+.tbb-btn-outline-dark:hover {
+  background: var(--tbb-cream-mid); border-color: rgba(45,45,45,0.4);
+  transform: translateY(-1px);
+}
+
+/* ── Section Labels ─── */
+.tbb-section-label {
+  font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--tbb-coral); margin-bottom: 10px;
+}
+.tbb-section-title {
+  font-family: var(--tbb-display); font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400; line-height: 1.2; margin-bottom: 16px; color: var(--tbb-text);
+}
+.tbb-section-divider {
+  width: 48px; height: 4px; background: var(--tbb-yellow);
+  border-radius: 4px; margin-bottom: 28px;
+}
+
+/* ── Hero ─── */
+.tbb-hero {
+  background: linear-gradient(135deg, #FFF0A0 0%, #FFD6A5 35%, #FFADAD 70%, #FFD6A5 100%);
+  padding: 80px 28px 100px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.tbb-hero-badge {
+  display: inline-block; background: var(--tbb-white);
+  color: var(--tbb-coral); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 7px 20px; border-radius: 50px; margin-bottom: 20px;
+  box-shadow: var(--tbb-shadow);
+}
+.tbb-hero-title {
+  font-family: var(--tbb-display); font-size: clamp(48px, 8vw, 86px);
+  font-weight: 400; line-height: 1; color: var(--tbb-text);
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.tbb-hero-tagline {
+  font-size: clamp(20px, 3vw, 26px); font-weight: 700;
+  color: var(--tbb-coral-dark); margin-bottom: 10px;
+}
+.tbb-hero-sub {
+  font-size: 17px; color: var(--tbb-text-light);
+  margin-bottom: 36px; font-weight: 600;
+}
+.tbb-hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.tbb-hero-shapes { position: absolute; inset: 0; pointer-events: none; }
+.tbb-shape {
+  position: absolute; font-size: 48px; opacity: 0.15;
+  animation: tbb-float 6s ease-in-out infinite;
+}
+.tbb-shape-1 { top: 12%; left: 6%; animation-delay: 0s; }
+.tbb-shape-2 { top: 20%; right: 8%; animation-delay: 1.5s; font-size: 36px; }
+.tbb-shape-3 { bottom: 18%; left: 12%; animation-delay: 3s; font-size: 32px; }
+.tbb-shape-4 { bottom: 12%; right: 6%; animation-delay: 4.5s; }
+@keyframes tbb-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+/* ── About the Book ─── */
+.tbb-about {
+  background: var(--tbb-white); padding: 90px 0;
+}
+.tbb-about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: start; margin-top: 8px;
+}
+.tbb-about-text p {
+  color: var(--tbb-text-light); font-size: 16px; line-height: 1.8;
+}
+.tbb-about-text p strong { color: var(--tbb-text); }
+.tbb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tbb-tag {
+  background: var(--tbb-cream-mid); color: var(--tbb-text);
+  padding: 6px 16px; border-radius: 50px;
+  font-size: 13px; font-weight: 700; border: 2px solid var(--tbb-border);
+}
+
+/* ── Cover Gallery ─── */
+.tbb-cover-gallery {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.tbb-cover-item { text-align: center; }
+.tbb-cover-img {
+  width: 100%; border-radius: var(--tbb-radius);
+  box-shadow: var(--tbb-shadow-lg);
+  border: 4px solid var(--tbb-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tbb-cover-img:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.tbb-cover-item:last-child .tbb-cover-img:hover {
+  transform: translateY(-6px) rotate(1deg);
+}
+.tbb-cover-caption {
+  margin-top: 12px; font-size: 14px; font-weight: 800;
+  color: var(--tbb-text-light); text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Buy Now ─── */
+.tbb-buy {
+  background: linear-gradient(135deg, var(--tbb-coral) 0%, #FF8E53 100%);
+  padding: 90px 0; text-align: center;
+  position: relative; overflow: hidden;
+}
+.tbb-buy::before {
+  content: '🧀 🧀 🧀 🧀 🧀 🧀 🧀 🧀 🧀 🧀 🧀 🧀';
+  position: absolute; top: 0; left: 0; right: 0;
+  font-size: 28px; opacity: 0.08; letter-spacing: 20px;
+  line-height: 1; pointer-events: none;
+}
+.tbb-buy-inner { position: relative; z-index: 1; }
+.tbb-buy-emoji { font-size: 56px; margin-bottom: 16px; }
+.tbb-buy-sub {
+  font-size: 17px; color: rgba(255,255,255,0.85);
+  max-width: 520px; margin: 0 auto 32px; font-weight: 600;
+}
+.tbb-buy-note {
+  margin-top: 16px; font-size: 13px;
+  color: rgba(255,255,255,0.65); font-weight: 600;
+}
+
+/* ── About the Author ─── */
+.tbb-author { background: var(--tbb-cream); padding: 90px 0; }
+.tbb-author-card {
+  display: flex; gap: 48px; align-items: flex-start;
+  background: var(--tbb-white); border-radius: var(--tbb-radius-lg);
+  padding: 48px; box-shadow: var(--tbb-shadow);
+  border: 2px solid var(--tbb-border); margin-top: 8px;
+}
+.tbb-author-avatar {
+  flex-shrink: 0; width: 100px; height: 100px;
+  background: linear-gradient(135deg, var(--tbb-yellow), var(--tbb-coral));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--tbb-display); font-size: 32px; color: var(--tbb-white);
+  box-shadow: var(--tbb-shadow);
+}
+.tbb-author-name {
+  font-family: var(--tbb-display); font-size: 26px; font-weight: 400;
+  color: var(--tbb-text); margin-bottom: 16px;
+}
+.tbb-author-bio p { color: var(--tbb-text-light); font-size: 15px; }
+.tbb-author-bio p strong { color: var(--tbb-text); }
+.tbb-author-links { margin-top: 24px; }
+
+/* ── Footer ─── */
+.tbb-footer {
+  background: var(--tbb-text); color: rgba(255,255,255,0.7);
+  padding: 40px 0; text-align: center; font-size: 14px;
+}
+.tbb-footer-logo {
+  font-family: var(--tbb-display); font-size: 22px;
+  color: var(--tbb-yellow); margin-bottom: 8px;
+}
+.tbb-footer a { color: rgba(255,255,255,0.6); transition: color 0.3s; }
+.tbb-footer a:hover { color: var(--tbb-yellow); }
+.tbb-sep { margin: 0 10px; opacity: 0.4; }
+
+/* ── Responsive ─── */
+@media (max-width: 900px) {
+  .tbb-about-grid { grid-template-columns: 1fr; }
+  .tbb-author-card { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+  .tbb-author-links { display: flex; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .tbb-hero { padding: 60px 20px 72px; }
+  .tbb-cover-gallery { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tbb-author-card { padding: 32px 24px; }
+  .tbb-hero-cta { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+{{ content | safe }}
+</body>
+</html>
