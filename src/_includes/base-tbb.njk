@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description or 'Tiny Bite Books — a debut picture book about a cheese-loving toddler who meets five chatty cheese characters. For curious kids ages 2–6.' }}">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description or 'Tiny Bite Books — a debut picture book about a cheese-loving toddler who meets five chatty cheese characters. For curious kids ages 2–6.' }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/assets/front-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description or 'Tiny Bite Books — a debut picture book about a cheese-loving toddler who meets five chatty cheese characters. For curious kids ages 2–6.' }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/front-cover.jpg">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Book","name":"Tiny Bite Books","author":{"@type":"Person","name":"Mrunal Parikh","email":"mrunaldparikh@gmail.com","url":"{{ site.url }}"},"description":"A debut picture book about a cheese-loving toddler who meets five chatty cheese characters. For curious kids ages 2–6.","url":"{{ site.url }}/tinybitebooks/","image":"{{ site.url }}/assets/front-cover.jpg","publisher":{"@type":"Person","name":"Mrunal Parikh"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --tbb-yellow:       #FFD166;
+  --tbb-yellow-dark:  #F4B730;
+  --tbb-yellow-pale:  #FFF6D6;
+  --tbb-coral:        #FF6B6B;
+  --tbb-coral-dark:   #E8504F;
+  --tbb-coral-pale:   #FFF0F0;
+  --tbb-mint:         #06D6A0;
+  --tbb-mint-dark:    #04B887;
+  --tbb-purple:       #9B5DE5;
+  --tbb-purple-pale:  #F3ECFF;
+  --tbb-blue:         #4CC9F0;
+  --tbb-blue-pale:    #E8F9FF;
+  --tbb-peach:        #FF9F68;
+  --tbb-cream:        #FFFBF0;
+  --tbb-cream-mid:    #FFF3D0;
+  --tbb-cream-deep:   #FDEDC5;
+  --tbb-text:         #2D2D2D;
+  --tbb-text-light:   #6B6B7A;
+  --tbb-text-muted:   #9E9EB0;
+  --tbb-white:        #FFFFFF;
+  --tbb-border:       #FFE8A3;
+  --tbb-border-soft:  #F0E6C8;
+  --tbb-radius:       20px;
+  --tbb-radius-lg:    32px;
+  --tbb-radius-xl:    48px;
+  --tbb-shadow-sm:    0 2px 8px rgba(0,0,0,0.06);
+  --tbb-shadow:       0 6px 24px rgba(0,0,0,0.08);
+  --tbb-shadow-lg:    0 16px 56px rgba(0,0,0,0.12);
+  --tbb-font:         'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --tbb-display:      'Fredoka One', 'Nunito', cursive;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--tbb-font);
+  color: var(--tbb-text);
+  background: var(--tbb-cream);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+p { margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+ul { list-style: none; }
+
+/* ── Layout ─── */
+.tbb-wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+.tbb-wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+/* ── Buttons ─── */
+.tbb-btn {
+  display: inline-block; padding: 14px 32px; border-radius: 50px;
+  font-family: var(--tbb-font); font-size: 15px; font-weight: 800;
+  letter-spacing: 0.01em; cursor: pointer; border: 3px solid transparent;
+  transition: all 0.25s ease; text-align: center; line-height: 1.3;
+}
+.tbb-btn-primary {
+  background: var(--tbb-coral); color: var(--tbb-white);
+  border-color: var(--tbb-coral); box-shadow: 0 5px 0 var(--tbb-coral-dark);
+}
+.tbb-btn-primary:hover {
+  background: var(--tbb-coral-dark); border-color: var(--tbb-coral-dark);
+  transform: translateY(-2px); box-shadow: 0 7px 0 #c93a3a;
+}
+.tbb-btn-amazon {
+  background: var(--tbb-yellow); color: var(--tbb-text);
+  border-color: var(--tbb-yellow); box-shadow: 0 5px 0 var(--tbb-yellow-dark);
+  font-size: 17px; padding: 18px 48px;
+}
+.tbb-btn-amazon:hover {
+  background: var(--tbb-yellow-dark); border-color: var(--tbb-yellow-dark);
+  transform: translateY(-2px); box-shadow: 0 7px 0 #c9940a;
+}
+.tbb-btn-outline {
+  background: transparent; color: var(--tbb-text);
+  border-color: rgba(45,45,45,0.25);
+}
+.tbb-btn-outline:hover {
+  background: rgba(255,255,255,0.5); border-color: rgba(45,45,45,0.45);
+  transform: translateY(-2px);
+}
+.tbb-btn-ghost {
+  background: rgba(255,255,255,0.2); color: var(--tbb-white);
+  border-color: rgba(255,255,255,0.35);
+}
+.tbb-btn-ghost:hover {
+  background: rgba(255,255,255,0.32); border-color: rgba(255,255,255,0.6);
+  transform: translateY(-2px);
+}
+.tbb-btn-mint {
+  background: var(--tbb-mint); color: var(--tbb-white);
+  border-color: var(--tbb-mint); box-shadow: 0 5px 0 var(--tbb-mint-dark);
+}
+.tbb-btn-mint:hover {
+  background: var(--tbb-mint-dark); border-color: var(--tbb-mint-dark);
+  transform: translateY(-2px); box-shadow: 0 7px 0 #039a72;
+}
+.tbb-btn-sm { padding: 10px 22px; font-size: 13px; }
+
+/* ── Section Helpers ─── */
+.tbb-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--tbb-cream-mid); color: var(--tbb-coral-dark);
+  font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 7px 18px; border-radius: 50px;
+  margin-bottom: 16px; border: 2px solid var(--tbb-border);
+}
+.tbb-section-title {
+  font-family: var(--tbb-display); font-size: clamp(28px, 4.5vw, 46px);
+  font-weight: 400; line-height: 1.15; margin-bottom: 16px; color: var(--tbb-text);
+}
+.tbb-section-divider {
+  width: 52px; height: 5px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--tbb-coral), var(--tbb-yellow));
+  margin-bottom: 32px;
+}
+
+/* ── Nav ─── */
+.tbb-nav {
+  background: var(--tbb-white); position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07); border-bottom: 3px solid var(--tbb-yellow);
+}
+.tbb-nav-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 0; gap: 16px;
+}
+.tbb-nav-logo {
+  font-family: var(--tbb-display); font-size: 22px;
+  color: var(--tbb-text); display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+}
+.tbb-nav-logo-emoji { font-size: 24px; }
+.tbb-nav-links {
+  display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+}
+.tbb-nav-link {
+  font-size: 14px; font-weight: 800; color: var(--tbb-text-light);
+  padding: 8px 16px; border-radius: 50px;
+  transition: all 0.2s ease;
+}
+.tbb-nav-link:hover {
+  background: var(--tbb-cream-mid); color: var(--tbb-text);
+}
+.tbb-nav-link.active {
+  background: var(--tbb-coral); color: var(--tbb-white);
+}
+.tbb-nav-buy {
+  background: var(--tbb-yellow); color: var(--tbb-text);
+  border-radius: 50px; padding: 8px 20px; font-size: 14px; font-weight: 800;
+  box-shadow: 0 3px 0 var(--tbb-yellow-dark); transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.tbb-nav-buy:hover {
+  background: var(--tbb-yellow-dark); transform: translateY(-1px);
+  box-shadow: 0 4px 0 #c9940a;
+}
+.tbb-nav-mobile-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  font-size: 24px; color: var(--tbb-text); padding: 4px;
+}
+@media (max-width: 700px) {
+  .tbb-nav-links { display: none; }
+  .tbb-nav-links.open { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
+  .tbb-nav-mobile-toggle { display: block; }
+  .tbb-nav-inner { flex-wrap: wrap; }
+  .tbb-nav-logo { flex: 1; }
+  .tbb-nav-buy { display: none; }
+}
+
+/* ── Footer ─── */
+.tbb-footer {
+  background: var(--tbb-text); color: rgba(255,255,255,0.65);
+  padding: 48px 0 32px; text-align: center; font-size: 14px;
+}
+.tbb-footer-logo {
+  font-family: var(--tbb-display); font-size: 28px;
+  color: var(--tbb-yellow); margin-bottom: 4px;
+}
+.tbb-footer-tagline {
+  font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 24px;
+}
+.tbb-footer-links {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 6px 20px; margin-bottom: 24px;
+}
+.tbb-footer-links a {
+  color: rgba(255,255,255,0.6); font-weight: 700; font-size: 13px;
+  transition: color 0.2s ease;
+}
+.tbb-footer-links a:hover { color: var(--tbb-yellow); }
+.tbb-footer-divider {
+  width: 48px; height: 3px; background: var(--tbb-yellow);
+  border-radius: 2px; margin: 0 auto 20px; opacity: 0.4;
+}
+.tbb-footer-copy {
+  font-size: 12px; opacity: 0.4;
+}
+
+/* ── Floating shapes ─── */
+@keyframes tbb-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(9deg); }
+}
+@keyframes tbb-float-alt {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(-7deg); }
+}
+.tbb-shape {
+  position: absolute; font-size: 52px; opacity: 0.14;
+  animation: tbb-float 6s ease-in-out infinite; pointer-events: none;
+}
+.tbb-shape-alt { animation: tbb-float-alt 7s ease-in-out infinite; }
+
+/* ── Tags ─── */
+.tbb-tag {
+  background: var(--tbb-cream-mid); color: var(--tbb-text);
+  padding: 7px 17px; border-radius: 50px; font-size: 13px; font-weight: 700;
+  border: 2px solid var(--tbb-border); display: inline-block;
+}
+.tbb-tag-coral { background: var(--tbb-coral-pale); border-color: #FFCBCB; color: #c93a3a; }
+.tbb-tag-purple { background: var(--tbb-purple-pale); border-color: #D8C0F8; color: #6b32b8; }
+.tbb-tag-mint  { background: #E0FBF4; border-color: #A7F0DC; color: #047255; }
+.tbb-tag-blue  { background: var(--tbb-blue-pale); border-color: #B8E8FC; color: #1a7a9c; }
+
+/* ── Cards ─── */
+.tbb-card {
+  background: var(--tbb-white); border-radius: var(--tbb-radius);
+  border: 2px solid var(--tbb-border); box-shadow: var(--tbb-shadow-sm);
+  padding: 36px 30px; transition: all 0.3s ease;
+}
+.tbb-card:hover {
+  box-shadow: var(--tbb-shadow); transform: translateY(-4px);
+  border-color: var(--tbb-yellow-dark);
+}
+
+/* ── Responsive Utility ─── */
+@media (max-width: 600px) {
+  .tbb-wrap { padding: 0 18px; }
+  .tbb-wrap-narrow { padding: 0 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="tbb-nav" aria-label="Tiny Bite Books navigation">
+  <div class="tbb-wrap">
+    <div class="tbb-nav-inner">
+      <a href="/tinybitebooks/" class="tbb-nav-logo">
+        <span class="tbb-nav-logo-emoji">🧀</span>
+        Tiny Bite Books
+      </a>
+      <button class="tbb-nav-mobile-toggle" id="tbb-menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="tbb-nav-links" id="tbb-nav-links">
+        <a href="/tinybitebooks/" class="tbb-nav-link {% if activePage == 'home' %}active{% endif %}">Home</a>
+        <a href="/tinybitebooks/about-the-book/" class="tbb-nav-link {% if activePage == 'about-book' %}active{% endif %}">About the Book</a>
+        <a href="/tinybitebooks/about-the-author/" class="tbb-nav-link {% if activePage == 'about-author' %}active{% endif %}">About the Author</a>
+        <a href="/tinybitebooks/contact/" class="tbb-nav-link {% if activePage == 'contact' %}active{% endif %}">Contact</a>
+      </div>
+      <a href="/tinybitebooks/buy-now/" class="tbb-nav-buy {% if activePage == 'buy' %}active{% endif %}">🛒 Buy Now</a>
+    </div>
+  </div>
+</nav>
+
+{{ content | safe }}
+
+<!-- Footer -->
+<footer class="tbb-footer">
+  <div class="tbb-wrap">
+    <p class="tbb-footer-logo">🧀 Tiny Bite Books</p>
+    <p class="tbb-footer-tagline">Where every nibble leads to a new adventure!</p>
+    <div class="tbb-footer-divider"></div>
+    <nav class="tbb-footer-links" aria-label="Footer navigation">
+      <a href="/tinybitebooks/">Home</a>
+      <a href="/tinybitebooks/about-the-book/">About the Book</a>
+      <a href="/tinybitebooks/buy-now/">Buy Now</a>
+      <a href="/tinybitebooks/about-the-author/">About the Author</a>
+      <a href="/tinybitebooks/contact/">Contact</a>
+    </nav>
+    <p class="tbb-footer-copy">
+      &copy; 2026 Mrunal Parikh &middot; All rights reserved &middot;
+      <a href="/" style="color: rgba(255,255,255,0.4);">Mrunal's Space</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+var toggle = document.getElementById('tbb-menu-toggle');
+var links  = document.getElementById('tbb-nav-links');
+if (toggle && links) {
+  toggle.addEventListener('click', function() {
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.textContent = open ? '✕' : '☰';
+  });
+}
+// Close nav on link click (mobile)
+links && links.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    links.classList.remove('open');
+    toggle && toggle.setAttribute('aria-expanded', 'false');
+    toggle && (toggle.textContent = '☰');
+  });
+});
+</script>
+</body>
+</html>
